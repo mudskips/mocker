@@ -6,7 +6,6 @@ import click
 import traceback
 import linux
 
-
 def _get_image_path(image_name, image_dir, image_suffix='tar'):
     return os.path.join(image_dir, os.extsep.join([image_name, image_suffix]))
 
@@ -40,6 +39,29 @@ def create_container_root(image_name, image_dir, container_id, container_dir):
 @click.group()
 def cli():
     pass
+
+#fun command line addition
+cat = r"""
+     ⢠⡶⠚⢷⣤⡀⠀⠀⠀⠀⠀⣲⡶⠛⠻⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⢠⡿⠁⠀⠀⠙⣷⣄⠀⢀⣴⡟⠁⠀⠀⢷⢹⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⣾⠃⠀⠠⠶⠚⠛⠛⠛⠛⠋⠀⠀⣀⡀⢸⠈⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⢸⣏⡔⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠚⠉⠉⣿⠀⢹⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⢾⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⠀⢸⡇⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⢠⣿⢠⣶⡆⠀⠀⠀⠀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇⠀⠀⠀⠀⠀⠀⠀⠀
+⢒⡾⠁⠘⠟⠁⠀⠀⠀⠀⣿⣿⡆⠀⠀⠀⠀⠀⠀⠀⢸⡇⠀⠀⠀⠀⠀⠀⠀⠀
+⠉⣧⠀⠀⠀⠀⠃⠀⠀⠀⠈⠉⠠⣍⠀⠀⠀⠀⠀⠀⣸⡇⢀⣤⠶⠛⠛⠻⢦⣄
+⠀⠸⣧⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⡟⣴⠟⠁⠀⠀⠀⠀⠀⢻
+⠀⠀⠀⠛⣷⡦⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⣤⡴⠞⠋⢠⡟⠀⠀⠀⠀⠀⠀⢀⡾
+⠀⠀⠀⢰⡿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠳⣤⡀⢸⠃⠀⠀⠀⠀⢠⡶⠟⠁
+⠀⠀⠀⣸⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⢷⣹⡄⠀⠀⠀⠀⣼⠀⠀⠀
+⠀⠀⠀⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠈⢿⣇⠀⠀⠀⠀⢹⡄⠀⠀
+⠀⠀⠀⢸⡀⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣿⡄⠀⠀⠀⠈⣧⠀⠀
+⠀⠀⠀⢸⡇⠘⡇⠀⠀⠀⠀⠀⠀⠀⣀⠀⠀⠀⠀⠀⠀⢸⣿⠀⠀⠀⠀⢹⡇⠀
+⠀⠀⠀⢸⡇⠀⠙⠀⠀⠀⠀⠀⢠⠞⠁⠀⠀⠀⠀⠀⠀⠀⣿⠇⠀⠀⠀⢸⡇⠀
+⠀⠀⠀⢸⡇⠀⢸⡆⠀⠀⠀⠀⣟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠛⠀⠀⠀⠀⣸⠇⠀
+⠀⠀⠀⢸⣿⠀⠀⡇⠀⠀⠀⠀⣿⡀⠀⠀⠀⠀⠀⠀⠀⢀⡇⠀⠀⢀⣴⡟⠁⠀
+⠀⠀⠀⠘⠿⠶⢶⢧⣦⣦⡴⢾⣥⣽⣤⣤⣤⣤⣤⣤⡴⣯⡤⠴⠶⠛⠋ happy containing :) """
+
 
 def contain(command, image_name, image_dir, container_id, container_dir):
     """Set up and deploy the container environment :)"""
@@ -82,6 +104,7 @@ def contain(command, image_name, image_dir, container_id, container_dir):
         os.setgroups([])
         os.setgid(65534)
         os.setuid(65534)
+        print(cat)
         os.execvpe(command[0], command, env)
 
 
@@ -90,6 +113,8 @@ def contain(command, image_name, image_dir, container_id, container_dir):
         with open("/sys/fs/cgroup/cgroup.subtree_control", "w") as target:
             target.write("+cpu +memory")
         os.mkdir(f"/sys/fs/cgroup/{container_id}")
+        while not os.path.exists(f"/sys/fs/cgroup/{container_id}/memory.max"):
+            pass
         cpu_limit = 75
         # in mb, gets converted later
         mem_limit = 500
@@ -105,8 +130,8 @@ def contain(command, image_name, image_dir, container_id, container_dir):
 
 @cli.command(context_settings=dict(ignore_unknown_options=True,))
 @click.option('--image-name', '-i', help='Image name', default='ubuntu')
-@click.option('--image-dir', '--idr', help='Images directory', default='/workshop/images')
-@click.option('--container-dir','--cdr' , help='Containers directory', default='/workshop/containers')
+@click.option('--image-dir', '--idr', help='Images directory', default='/mocker/images')
+@click.option('--container-dir','--cdr' , help='Containers directory', default='/mocker/containers')
 @click.argument('Command', required=True, nargs=-1)
 def run(image_name, image_dir, container_dir, command):
     container_id = str(uuid.uuid4())
