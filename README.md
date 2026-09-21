@@ -1,7 +1,7 @@
 ## Mocker
 
 ### What is it?
-Mocker is a way to run containers on linux based systems and VMs by utilizing namespaces and cgroups to isolate processes. The structure is based on a simplified version of docker (hence the name) 
+Mocker is a proof-of-concept program to build containers on linux based systems and VMs by utilizing namespaces and cgroups to isolate processes. The structure is based on a simplified version of docker (hence the name) 
 
 ### How to run
 
